@@ -6,7 +6,7 @@ layout used by etherealwake/config-nix.
 ## Layout
 
 ```
-flake.nix                          # inputs (nixpkgs 25.11, home-manager) + outputs
+flake.nix                          # inputs (nixpkgs 26.05, home-manager) + outputs
 hosts/
   default.nix                      # nixosSystem wrapper: appends modules + users to every host
   sharktopus/

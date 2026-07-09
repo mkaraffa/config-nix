@@ -27,5 +27,5 @@
 
   services.fstrim.enable = true;
 
-  system.stateVersion = "25.11";   # match the release you installed
+  system.stateVersion = "26.05";   # match the release you installed
 }
