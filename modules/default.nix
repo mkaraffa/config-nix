@@ -33,6 +33,6 @@
       };
     };
 
-    environment.systemPackages = with pkgs; [ vim git curl htop ];
+    environment.systemPackages = with pkgs; [ vim-full git curl efibootmgr pciutils usbutils htop ];
   };
 }
