@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   home.stateVersion = "26.05";
@@ -19,6 +19,6 @@
   };
 
   # Add your per-user packages and dotfiles here.
-  home.packages = [ ];
+  home.packages = with pkgs; [ claude-code ];
 
 }
