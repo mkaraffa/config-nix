@@ -22,7 +22,10 @@
       # `nix fmt` — format every .nix file with nixfmt (RFC style).
       formatter.${system} = pkgs.writeShellApplication {
         name = "fmt";
-        runtimeInputs = [ pkgs.nixfmt-rfc-style pkgs.findutils ];
+        runtimeInputs = [
+          pkgs.nixfmt-rfc-style
+          pkgs.findutils
+        ];
         text = ''
           find . -name '*.nix' -not -path './.git/*' -exec nixfmt {} +
         '';

@@ -1,4 +1,9 @@
-{ inputs, lib, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -12,7 +17,10 @@
     nixpkgs.config.allowUnfree = true;
 
     # Nix / flakes
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix.settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     nix.optimise.automatic = true;
     nix.gc = {
       automatic = lib.mkDefault true;
@@ -20,7 +28,7 @@
     };
 
     # Locality
-    time.timeZone = lib.mkDefault "America/New_York";   # override per host if needed
+    time.timeZone = lib.mkDefault "America/New_York"; # override per host if needed
     i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
 
     # SSH — key auth plus a first-boot password fallback. Harden later by setting
@@ -33,6 +41,14 @@
       };
     };
 
-    environment.systemPackages = with pkgs; [ vim-full git curl efibootmgr pciutils usbutils htop ];
+    environment.systemPackages = with pkgs; [
+      vim-full
+      git
+      curl
+      efibootmgr
+      pciutils
+      usbutils
+      htop
+    ];
   };
 }

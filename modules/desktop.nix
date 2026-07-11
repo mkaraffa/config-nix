@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.local.desktop;
 in
@@ -12,8 +17,8 @@ in
     hardware.enableRedistributableFirmware = true;
     hardware.graphics = {
       enable = true;
-      enable32Bit = true;                                 # 32-bit libs for Steam/Proton
-      extraPackages = with pkgs; [ intel-media-driver ];  # HW video decode
+      enable32Bit = true; # 32-bit libs for Steam/Proton
+      extraPackages = with pkgs; [ intel-media-driver ]; # HW video decode
     };
 
     # GNOME. For KDE Plasma (what etherealwake uses), swap these for:
