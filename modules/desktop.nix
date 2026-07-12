@@ -45,5 +45,7 @@ in
     };
 
     programs.firefox.enable = true;
+
+    fonts.packages = with pkgs; [ inconsolata ];
   };
 }

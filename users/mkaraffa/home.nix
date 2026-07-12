@@ -12,11 +12,46 @@
   programs.bash = {
     enable = true;
     shellAliases = {
+      # NixOS management
       rebuild = "sudo nixos-rebuild switch --flake /home/mkaraffa/nixos-config#$(hostname)";
       update = "nix flake update /home/mkaraffa/nixos-config";
+      # Git
       gs = "git status";
+      # Navigation / listing
+      l = "ls";
+      ll = "ls -lh";
+      lrt = "ls -rt1";
+      lart = "ls -larth";
+      # Convenience
+      m = "more";
+      mroe = "more";
+      h = "history";
+      hh = "history | tail -15";
+      untar = "tar -xvzf";
+      # Typo aliases
+      givm = "gvim";
+      # Launch firefox detached from terminal
+      ff = "( firefox ) >& /dev/null &";
     };
   };
+
+  home.file.".vimrc".text = ''
+    set guifont=Inconsolata\ Medium\ 14
+    set nomodeline
+
+    set tabstop=8
+    set softtabstop=2
+    set shiftwidth=2
+    set expandtab
+
+    set autoindent
+    set number
+    set ignorecase
+    syntax on
+    filetype on
+    colorscheme slate
+    set hlsearch
+  '';
 
   home.packages = with pkgs; [
     claude-code
