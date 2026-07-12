@@ -9,10 +9,15 @@ let
 in
 {
   options.local.desktop = {
-    enable = lib.mkEnableOption "the GNOME desktop + gaming graphics stack";
+    enable = lib.mkEnableOption "the GNOME desktop environment";
   };
 
   config = lib.mkIf cfg.enable {
+    boot.plymouth.enable = true;
+    boot.kernelParams = [
+      "quiet"
+      "splash"
+    ];
     # Intel Iris Xe iGPU — Mesa, no proprietary drivers.
     hardware.enableRedistributableFirmware = true;
     hardware.graphics = {

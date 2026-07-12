@@ -11,6 +11,7 @@
     inputs.home-manager.nixosModules.default
     # Local modules
     ./desktop.nix
+    ./gaming.nix
   ];
 
   config = {
@@ -26,18 +27,20 @@
       automatic = lib.mkDefault true;
       options = lib.mkDefault "--delete-older-than 14d";
     };
+    # Trigger GC before builds fail due to low disk space.
+    nix.settings.min-free = lib.mkDefault (5 * 1024 * 1024 * 1024);
+    nix.settings.max-free = lib.mkDefault (10 * 1024 * 1024 * 1024);
 
     # Locality
     time.timeZone = lib.mkDefault "America/New_York"; # override per host if needed
     i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
 
-    # SSH — key auth plus a first-boot password fallback. Harden later by setting
-    # PasswordAuthentication = false once key login is confirmed.
     services.openssh = {
       enable = true;
       settings = {
         PermitRootLogin = "prohibit-password";
-        PasswordAuthentication = true;
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
       };
     };
 
@@ -48,7 +51,7 @@
       efibootmgr
       pciutils
       usbutils
-      htop
+      btop
     ];
   };
 }

@@ -5,21 +5,26 @@
 
   programs.git = {
     enable = true;
-    userName = "Matt";
-    userEmail = "mkaraffa@gmail.com";
+    settings.user.name = "Matt";
+    settings.user.email = "mkaraffa@gmail.com";
   };
 
   programs.bash = {
     enable = true;
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake /home/mkaraffa/nixos-config#sharktopus";
+      rebuild = "sudo nixos-rebuild switch --flake /home/mkaraffa/nixos-config#$(hostname)";
       update = "nix flake update /home/mkaraffa/nixos-config";
       gs = "git status";
     };
   };
 
-  # Add your per-user packages and dotfiles here.
-  home.packages = with pkgs; [ claude-code ];
+  home.packages = with pkgs; [
+    claude-code
+    fastfetch
+    tmux
+    nil
+    bash-language-server
+  ];
 
   # Setting firefox as default browser
   xdg.mimeApps = {

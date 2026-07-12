@@ -1,9 +1,10 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix # generated on the box: nixos-generate-config
-    ./steam.nix
+    inputs.nixos-hardware.nixosModules.common-cpu-intel
+    inputs.nixos-hardware.nixosModules.common-pc-ssd
   ];
 
   # ---------------------------------------------------------------------------
@@ -23,8 +24,8 @@
   time.hardwareClockInLocalTime = true; # dual-boot clock fix (Windows uses localtime)
   time.timeZone = "America/Los_Angeles";
 
-  # Turn on the shared desktop module (GNOME + graphics + audio).
   local.desktop.enable = true;
+  local.gaming.enable = true;
 
   services.fstrim.enable = true;
 
