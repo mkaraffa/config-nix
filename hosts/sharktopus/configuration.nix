@@ -21,6 +21,7 @@
   networking.networkmanager.enable = true;
 
   time.hardwareClockInLocalTime = true; # dual-boot clock fix (Windows uses localtime)
+  time.timeZone = "America/Los_Angeles";
 
   # Turn on the shared desktop module (GNOME + graphics + audio).
   local.desktop.enable = true;

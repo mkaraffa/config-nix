@@ -21,4 +21,19 @@
   # Add your per-user packages and dotfiles here.
   home.packages = with pkgs; [ claude-code ];
 
+  # Setting firefox as default browser
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+      "x-scheme-handler/unknown" = "firefox.desktop";
+    };
+  };
+
+  # Helps CLI tools pick firefox
+  home.sessionVariables.BROWSER = "firefox";
+
 }
