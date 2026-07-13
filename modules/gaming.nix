@@ -13,6 +13,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_zen;
+
     programs.steam = {
       enable = true;
       remotePlay.openFirewall = true;

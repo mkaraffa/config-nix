@@ -64,12 +64,28 @@
     };
   };
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+    "org/gnome/settings-daemon/plugins/color" = {
+      night-light-enabled = true;
+      night-light-schedule-automatic = true;
+    };
+  };
+
   home.packages = with pkgs; [
     claude-code
     fastfetch
     tmux
     nil
     bash-language-server
+    wl-clipboard
   ];
 
   # Setting firefox as default browser

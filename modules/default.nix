@@ -35,6 +35,8 @@
     time.timeZone = lib.mkDefault "America/New_York"; # override per host if needed
     i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
 
+    services.tailscale.enable = true;
+
     services.openssh = {
       enable = true;
       settings = {
@@ -52,6 +54,7 @@
       pciutils
       usbutils
       btop
+      restic
     ];
   };
 }

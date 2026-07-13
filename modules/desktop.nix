@@ -26,6 +26,9 @@ in
       extraPackages = with pkgs; [ intel-media-driver ]; # HW video decode
     };
 
+    hardware.bluetooth.enable = true;
+    hardware.bluetooth.powerOnBoot = true;
+
     # GNOME. For KDE Plasma (what etherealwake uses), swap these for:
     #   services.displayManager.sddm.enable = true;
     #   services.desktopManager.plasma6.enable = true;
@@ -46,6 +49,11 @@ in
 
     programs.firefox.enable = true;
 
-    fonts.packages = with pkgs; [ inconsolata ];
+    fonts.packages = with pkgs; [
+      inconsolata
+      nerd-fonts.inconsolata
+      noto-fonts
+      noto-fonts-color-emoji
+    ];
   };
 }
