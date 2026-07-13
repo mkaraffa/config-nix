@@ -25,7 +25,7 @@
       formatter.${system} = pkgs.writeShellApplication {
         name = "fmt";
         runtimeInputs = [
-          pkgs.nixfmt-rfc-style
+          pkgs.nixfmt
           pkgs.findutils
         ];
         text = ''
