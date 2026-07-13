@@ -53,6 +53,17 @@
     set hlsearch
   '';
 
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      jnoortheen.nix-ide
+    ];
+    userSettings = {
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nil";
+    };
+  };
+
   home.packages = with pkgs; [
     claude-code
     fastfetch
