@@ -14,7 +14,7 @@
   # way etherealwake does.
   # ---------------------------------------------------------------------------
   boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 5; # ESP is small (300 MB)
+  boot.loader.systemd-boot.configurationLimit = 3; # ESP is small (300 MB)
   boot.loader.timeout = 5; # show menu when a monitor's attached
   boot.loader.efi.canTouchEfiVariables = true;
 
